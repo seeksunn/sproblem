@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: 'Comfortaa', cursive;
+}
+h1 {
+  font-size: 40px;
+}
+.myGreenBtn{
+  background-color: #41BA85;
+  color: white;
+}
+
+.myCenter {
+  max-width: 500px;
+  margin: auto;
+}
+.myGreen{
+  color: #41BA85;
+}
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: white;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+.center {
+  height: 330px;
+  width: 400px;  
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+/* Style the form - display items horizontally */
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+/* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.description {
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.w3-card-2:hover {
+  color: white;  
+  background-color: #41BA85;
+  text-decoration: none;
+}
+.w3-card-2 {
+  color: #41BA85;  
+  background-color: white;
+  text-decoration: none;
+}

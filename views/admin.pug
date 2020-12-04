@@ -1,0 +1,18 @@
+extend layout
+block content
+    .w3-container.center(style='min-width:30%')        
+        .w3-card-4
+            .w3-container.w3-deep-orange
+                h2 Admin
+            form.w3-container(method="POST" action="/admin/login")
+                p
+                    input.w3-input(type='password' name='password')
+                    label Password  
+                .w3-panel                    
+                    p #{message}             
+                a(href='/').w3-button.w3-border User Home Page
+                button.w3-button.w3-border.w3-right(type='submit') Login
+                br
+                br
+                
+

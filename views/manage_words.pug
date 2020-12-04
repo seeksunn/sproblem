@@ -1,0 +1,25 @@
+extend layout
+block content
+    .w3-bar.w3-deep-orange.w3-card-4.w3-section
+        a.w3-bar-item.w3-moblie Admin: #{admin.id}
+        a.w3-bar-item.w3-button.w3-mobile(href='/admin/manage') Manage Exercise        
+        a.w3-bar-item.w3-button.w3-mobile(href='/admin/words') Manage Words
+        a.w3-bar-item.w3-button.w3-mobile(href='/logout') Log Out    
+    form.form-inline.w3-margin(action='/admin/addWord' method='POST')
+        label.w3-text-deep-orange Add New Word : 
+            input.w3-border.w3-border-deep-orange(type='text', name='word')      
+        button.w3-margin.w3-deep-orange.w3-hover-light-grey(type='submit' style='border:0px') Add                
+    table.w3-table-all.w3-hoverable.w3-section.w3-center
+        thead
+            tr.w3-light-grey
+            th ID
+            th Word
+            th Command
+        each word in words            
+            tr
+                td #{word._id}
+                td #{word.words}
+                td
+                    form(action='/admin/deleteWord' method='POST')    
+                        input(type='hidden' name='wordId' value=word._id)
+                        button.w3-button.w3-deep-orange(type='submit') Delete

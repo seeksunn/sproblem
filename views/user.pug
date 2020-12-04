@@ -1,0 +1,70 @@
+extend layout
+block header
+   style.
+      body, html {height: 100%;}
+      .bgimg {
+         background-repeat: no-repeat;
+         background-size: cover;
+         background-image: url('/images/bg.jpg');
+         background-position: center;
+         min-height: 100%;         
+      }      
+   header.bgimg.w3-display.w3-margin-bottom   
+      .w3-display-middle.w3-container.w3-center
+         p 
+            span
+               b.w3-text.w3-xxxlarge.myGreen Welcome, #{user.name} !
+            br
+            br                        
+            a.w3-button.myGreenBtn.w3-xlarge.w3-round-xxlarge(href='#exercise') let's get start     
+      .w3-display-bottomleft.w3-padding
+         a.w3-button.w3-large.myGreenBtn.w3-round-xxlarge(href='/logout', style='text-decoration: none;') Log out
+block content
+   h1#exercise.w3-center.w3-section.myGreen Exercise
+   .w3-row.w3-section.w3-center
+      each ex in exercise
+         - var exId = ex._id     
+         .w3-third.w3-container.w3-section
+            a.w3-btn.w3-card-2.w3-margin.w3-border.myGreenBtn.w3-block(href='/user/exercise?exId='+exId)
+               header.w3-container
+                  h2                     
+                     span #{ex.topic} 
+                     each done in user.completed
+                        if done == ex._id
+                           img.w3-margin-right(src='/images/done.png' alt='Avatar' style='width:20px; display:inline;')
+               .w3-container    
+                  p.w3-left-align.description #{ex.content}
+                  br                     
+               br
+               br
+      a.w3-button.myGreenBtn.w3-xlarge.w3-round-xxlarge.w3-section(href='/user/list?filter=all')  see more
+   //.w3-panel.myGreenBtn.w3-padding-24
+   h1#exercise.w3-center.w3-section.myGreen Random Words
+   .w3-row
+      .w3-third.w3-container
+         .w3-content.w3-center.w3-section(style='min-width:30%;')
+            a.w3-btn.w3-card-2.w3-margin.w3-border.myGreenBtn.w3-block(href='/user/all_words_exercise')
+               header.w3-container
+                  h2                     
+                     span.description Random word from database 
+               .w3-container         
+                  p.w3-left-align.description Combine all word from our exercise and pick 20 random words for you
+                  br      
+               br
+               br
+      .w3-third.w3-container
+         .w3-content.w3-center.w3-section(style='min-width:30%;')
+            a.w3-btn.w3-card-2.w3-margin.w3-border.myGreenBtn.w3-block(href='/user/all_words_exercise')
+               header.w3-container
+                  h2
+                     span.description Random word from Random Words API 
+               .w3-container         
+                  p.w3-left-align.description Pick 20 random word from random-word-api.herokuapp.com/home
+                  br      
+               //a.w3-button.myGreenBtn.w3-xlarge.w3-round-xxlarge(href='/user/all_words_exercise') Go
+               br
+               br
+block footer
+   .w3-panel.myGreenBtn.w3-center.w3-section(style='min-height=100%')      
+      p Powerd by W3.CSS
+      p Special Problem of Computer Science KMITL

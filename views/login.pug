@@ -1,0 +1,41 @@
+extend layout
+block content 
+  .w3-card.center.w3-border.w3-center  
+    img.myCenter(src='/images/logo.png' alt='Avatar' style='width:200px; display:block;')
+    button.w3-button.myGreenBtn.w3-large(onclick="document.getElementById('login').style.display='block'") Login
+    #login.w3-modal
+      .w3-modal-content.w3-card-4.w3-animate-zoom(style='max-width:600px')
+        .w3-center
+          br
+          span.w3-button.w3-xlarge.w3-hover-red.w3-display-topright(onclick="document.getElementById('login').style.display='none'", title='Close Modal') &times;        
+        form.w3-container(method="POST" action="/auth/login")
+          .w3-section
+            label
+              b Username
+            input.w3-input.w3-border.w3-margin-bottom(type='text', placeholder='Enter Username', name='username', required)
+            label
+              b Password
+            input.w3-input.w3-border(type='password', placeholder='Enter Password', name='password', required)
+            button.w3-button.w3-block.myGreenBtn.w3-section.w3-padding(type='submit') Login         
+        
+    br
+    br
+    button.w3-button.myGreenBtn.w3-large(onclick="document.getElementById('register').style.display='block'") Register
+    #register.w3-modal
+      .w3-modal-content.w3-card-4.w3-animate-zoom(style='max-width:600px')
+        .w3-center
+          br
+          span.w3-button.w3-xlarge.w3-hover-red.w3-display-topright(onclick="document.getElementById('register').style.display='none'", title='Close Modal') &times;        
+        form.w3-container(method="POST" action="/auth/register")
+          .w3-section
+            label
+              b Name
+            input.w3-input.w3-border.w3-margin-bottom(type='text', placeholder='Enter name', name='name', required)
+            label
+              b Username
+            input.w3-input.w3-border.w3-margin-bottom(type='text', placeholder='Enter Username', name='username', required)
+            label
+              b Password
+            input.w3-input.w3-border(type='password', placeholder='Enter Password', name='password', required)
+            button.w3-button.w3-block.myGreenBtn.w3-section.w3-padding(type='submit') Register         
+        

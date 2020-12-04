@@ -1,0 +1,22 @@
+extends layout
+block content    
+    .w3-card-4
+        .w3-container
+            h1.w3-text-deep-orange #{exercise._id} 
+            a.w3-margin.w3-btn.w3-deep-orange.w3-large(href="/admin/manage") Back
+            form.w3-container.w3-center(action='/admin/confirm' method="POST")
+                p
+                    label.w3-text-deep-orange.w3-xlarge
+                        b Topic
+                    input.w3-input.w3-border.w3-border-deep-orange(name='topic', type='text', value=exercise.topic)
+                p
+                    label.w3-text-deep-orange.w3-xlarge
+                        b Content
+                    textarea.w3-input.w3-border.w3-border-deep-orange(rows='50', name='content' style='white-space: pre-wrap;') #{exercise.content}
+                p
+                    label.w3-text-deep-orange.w3-xlarge
+                        b Word
+                    textarea.w3-input.w3-border.w3-border-deep-orange(rows='50', name='words' style='white-space: nowrap;') #{wordArray}                            
+                p
+                    input(type='hidden' name='exId' value=exercise._id)
+                    button.w3-btn.w3-deep-orange.w3-xlarge Finish

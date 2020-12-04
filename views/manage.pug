@@ -1,0 +1,22 @@
+extend layout
+block content
+    .w3-bar.w3-deep-orange.w3-card-4.w3-section
+        a.w3-bar-item.w3-moblie Admin: #{admin.id}
+        a.w3-bar-item.w3-button.w3-mobile(href='/admin/manage') Manage Exercise       
+        a.w3-bar-item.w3-button.w3-mobile(href='/admin/words') Manage Word
+        a.w3-bar-item.w3-button.w3-mobile(href='/logout') Log Out
+    a.w3-button.w3-mobile.w3-margin.w3-deep-orange(href='/admin/exercise?exId=newExercise') Add Exercise                
+    table.w3-table-all.w3-hoverable.w3-section.w3-center
+        thead
+            tr.w3-light-grey
+            th ID
+            th Topic
+            th Command
+        each ex in exercise
+            - var exId = ex._id 
+            tr
+                td #{ex._id}
+                td #{ex.topic}
+                td 
+                    a.w3-button.w3-deep-orange.w3-margin-right(href='/admin/exercise?exId='+exId) Edit
+                    a.w3-button.w3-deep-orange(href='/admin/delete?exId='+exId) Delete

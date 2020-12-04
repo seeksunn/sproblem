@@ -1,0 +1,24 @@
+extend layout
+block content 
+  .w3-panel.myGreenBtn.w3-card-4.w3-section  
+    h1.w3-center #{exercise.topic} 
+  .w3-panel.w3card-4.w3-margin.w3-padding-large
+    p(style = 'white-space: pre-wrap') #{exercise.content} 
+   
+  .w3-container.w3-section.w3-center
+    p#target.w3-center.w3-jumbo(style='color:orange;') Press Start
+    p#userConsole.w3-center(style='color:red;')
+
+  .w3-container.w3-center    
+    button#exitBtn.w3-button.w3-large.myGreenBtn.w3-round-xxlarge.w3-margin(onclick="window.location.href='/user#exercise'") Exit
+    button#readBtn.w3-button.w3-large.myGreenBtn.w3-round-xxlarge.w3-margin(onclick='ttspeech()' style='display: none;') Read
+    button#continueBtn.w3-button.w3-large.myGreenBtn.w3-round-xxlarge.w3-margin(onclick='pickword()') Start
+    button#speakBtn.w3-button.w3-large.myGreenBtn.w3-round-xxlarge.w3-margin(onclick='speechToText()' style='display: none;') Speak
+  form#completedForm.w3-center(action='/user/completer' method='POST' style='display: none;')
+    input(type='text' style='display:none;' id='exId' name='exId' value=exercise._id)
+    input.w3-button.w3-large.myGreenBtn.w3-round-xxlarge(type='submit' value='Complete' id='exId')
+ 
+  script. 
+    var words = '#{exercise.words}';       
+    words = words.split(",");
+  script(src='../public/javascripts/appScript.js')
